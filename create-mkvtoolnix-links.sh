@@ -35,7 +35,7 @@ MANS_BASE="$FOUND_APP"'/Contents/MacOS/man/'
 
 for (( i=0; i<${#MKV_BINARIES[*]}; i++ )) ; do
 	BIN="$FOUND_APP"'/Contents/MacOS/'"${MKV_BINARIES[$i]}"
-	ln -s "$BIN" "$BIN_TARGET"
+	ln -fs "$BIN" "$BIN_TARGET"
 done
 
 
@@ -71,4 +71,4 @@ MANS_SRC=$(echo -n "$MANS_BASE"'/'"$MANS_LANG_DIR"'/man1' \
 find "$MANS_SRC" \
 	-maxdepth 1 \
 	-name '*.1' \
-	-exec ln -s "{}" $MAN_TARGET \;
+	-exec ln -fs "{}" "$MAN_TARGET" \;
